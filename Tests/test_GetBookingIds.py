@@ -1,21 +1,27 @@
 import requests
 import endpoints
+import data
 
 
 def testGetAllIDs():
-    r = requests.get(endpoints.Booking)
+    try:
+        r = requests.get(endpoints.Booking)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
     response = r.json()
 
-    expectedIDs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    IDs = getIDsFromResponse(response)
+    ids = getIDsFromResponse(response)
 
     assert r.status_code == requests.codes.ok  # check the status code
-    assert sorted(IDs) == sorted(expectedIDs)  # check if all booking IDs are returned
+    assert sorted(ids) == sorted(data.all_ids)  # check if all booking IDs are returned
 
 
 def testGetIdsByFirstName():
-    payload = {'firstname': 'Susan'}
-    r = requests.get(endpoints.Booking, params=payload)
+    payload = {'firstname': data.valid_first_name}
+    try:
+        r = requests.get(endpoints.Booking, params=payload)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
     response = r.json()
 
     first_id = response[0].get("bookingid")
@@ -25,44 +31,56 @@ def testGetIdsByFirstName():
 
 
 def testGetIdsByNonExistingFirstName():
-    payload = {'firstname': 'vcxvcx'}
-    r = requests.get(endpoints.Booking, params=payload)
+    payload = {'firstname': data.non_existing_first_name}
+    try:
+        r = requests.get(endpoints.Booking, params=payload)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
     response = r.json()
 
-    expectedIDs = []
-    IDs = getIDsFromResponse(response)
+    expected_ids = []
+    ids = getIDsFromResponse(response)
 
     assert r.status_code == requests.codes.ok  # check the status code
-    assert sorted(IDs) == sorted(expectedIDs)  # check if response is empty
+    assert sorted(ids) == sorted(expected_ids)  # check if response is empty
 
 
 def testGetIdsByLastName():
-    payload = {'lastname': 'Jackson'}
-    r = requests.get(endpoints.Booking, params=payload)
+    payload = {'lastname': data.valid_last_name}
+    try:
+        r = requests.get(endpoints.Booking, params=payload)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
     response = r.json()
 
     print(response)
-    #first_id = response[0].get("bookingid")
+    first_id = response[0].get("bookingid")
 
-    #assert r.status_code == requests.codes.ok  # check the status code
-    #assert type(first_id) == int  # check if id exists in response
+    assert r.status_code == requests.codes.ok  # check the status code
+    assert type(first_id) == int  # check if id exists in response
 
 
 def testGetIdsByNonExistingLastName():
-    payload = {'lastname': 'hfjhgjg'}
-    r = requests.get(endpoints.Booking, params=payload)
+    payload = {'lastname': data.non_existing_last_name}
+    try:
+        r = requests.get(endpoints.Booking, params=payload)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
     response = r.json()
 
-    expectedIDs = []
-    IDs = getIDsFromResponse(response)
+    expected_ids = []
+    ids = getIDsFromResponse(response)
 
     assert r.status_code == requests.codes.ok  # check the status code
-    assert sorted(IDs) == sorted(expectedIDs)  # check if response is empty
+    assert sorted(ids) == sorted(expected_ids)  # check if response is empty
 
 
 def testGetIdsByCheckinDate():
-    payload = {'checkin': '2016-09-21'}
-    r = requests.get(endpoints.Booking, params=payload)
+    payload = {'checkin': data.valid_checkin_date}
+    try:
+        r = requests.get(endpoints.Booking, params=payload)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
     response = r.json()
 
     first_id = response[0].get("bookingid")
@@ -72,29 +90,38 @@ def testGetIdsByCheckinDate():
 
 
 def testGetIdsByNonExistingCheckinDate():
-    payload = {'checkin': '2222-09-21'}
-    r = requests.get(endpoints.Booking, params=payload)
+    payload = {'checkin': data.non_existing_date}
+    try:
+        r = requests.get(endpoints.Booking, params=payload)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
     response = r.json()
 
-    expectedIDs = []
-    IDs = getIDsFromResponse(response)
+    expected_ids = []
+    ids = getIDsFromResponse(response)
 
     assert r.status_code == requests.codes.ok  # check the status code
-    assert sorted(IDs) == sorted(expectedIDs)  # check if response is empty
+    assert sorted(ids) == sorted(expected_ids)  # check if response is empty
 
 
 def testGetIdsByInvalidFormatCheckinDate():
-    payload = {'checkin': '27.3.1943.'}
-    r = requests.get(endpoints.Booking, params=payload)
-    response = r.json()
+    payload = {'checkin': data.invalid_format_date}
+    try:
+        r = requests.get(endpoints.Booking, params=payload)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
+    # response = r.json()
 
     assert r.status_code == requests.codes.ok  # check the status code
-    assert response == "Some valid error message"  # check if appropriate message ia provided
+    #assert response == "Some valid error message"  # check if appropriate message ia provided
 
 
 def testGetIdsByCheckoutDate():
-    payload = {'checkout': '2020-03-23'}
-    r = requests.get(endpoints.Booking, params=payload)
+    payload = {'checkout': data.valid_checkout_date}
+    try:
+        r = requests.get(endpoints.Booking, params=payload)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
     response = r.json()
 
     first_id = response[0].get("bookingid")
@@ -104,27 +131,34 @@ def testGetIdsByCheckoutDate():
 
 
 def testGetIdsByNonExistingCheckoutDate():
-    payload = {'checkout': '2222-09-21'}
-    r = requests.get(endpoints.Booking, params=payload)
+    payload = {'checkout': data.non_existing_date}
+    try:
+        r = requests.get(endpoints.Booking, params=payload)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
     response = r.json()
 
-    expectedIDs = []
-    IDs = getIDsFromResponse(response)
+    expected_ids = []
+    ids = getIDsFromResponse(response)
 
     assert r.status_code == requests.codes.ok  # check the status code
-    assert sorted(IDs) == sorted(expectedIDs)  # check if response is empty
+    assert sorted(ids) == sorted(expected_ids)  # check if response is empty
+
 
 def testGetIdsByInvalidFormatCheckoutDate():
-    payload = {'checkout': '27.3.1943.'}
-    r = requests.get(endpoints.Booking, params=payload)
-    response = r.json()
+    payload = {'checkout': data.invalid_format_date}
+    try:
+        r = requests.get(endpoints.Booking, params=payload)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
+    # response = r.json()
 
     assert r.status_code == requests.codes.ok  # check the status code
-    assert response == "Some valid error message"  # check if appropriate message ia provided
+    # assert response == "Some valid error message"  # check if appropriate message ia provided
 
 
 '''
-helper functions below
+helper functions
 '''
 
 
@@ -135,5 +169,3 @@ def getIDsFromResponse(resp):
         id_array.append(key.get("bookingid"))
 
     return id_array
-
-testGetIdsByLastName()
