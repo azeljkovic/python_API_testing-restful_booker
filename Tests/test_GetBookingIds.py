@@ -12,7 +12,7 @@ def testGetAllIDs():
 
     ids = getIDsFromResponse(response)
 
-    assert r.status_code == requests.codes.ok  # check the status code
+    assert r.status_code == data.OK  # check the status code
     assert sorted(ids) == sorted(data.all_ids)  # check if all booking IDs are returned
 
 
@@ -26,7 +26,7 @@ def testGetIdsByFirstName():
 
     first_id = response[0].get("bookingid")
 
-    assert r.status_code == requests.codes.ok  # check the status code
+    assert r.status_code == data.OK  # check the status code
     assert type(first_id) == int  # check if id exists in response
 
 
@@ -41,7 +41,7 @@ def testGetIdsByNonExistingFirstName():
     expected_ids = []
     ids = getIDsFromResponse(response)
 
-    assert r.status_code == requests.codes.ok  # check the status code
+    assert r.status_code == data.OK  # check the status code
     assert sorted(ids) == sorted(expected_ids)  # check if response is empty
 
 
@@ -56,7 +56,7 @@ def testGetIdsByLastName():
     print(response)
     first_id = response[0].get("bookingid")
 
-    assert r.status_code == requests.codes.ok  # check the status code
+    assert r.status_code == data.OK  # check the status code
     assert type(first_id) == int  # check if id exists in response
 
 
@@ -71,7 +71,7 @@ def testGetIdsByNonExistingLastName():
     expected_ids = []
     ids = getIDsFromResponse(response)
 
-    assert r.status_code == requests.codes.ok  # check the status code
+    assert r.status_code == data.OK  # check the status code
     assert sorted(ids) == sorted(expected_ids)  # check if response is empty
 
 
@@ -85,7 +85,7 @@ def testGetIdsByCheckinDate():
 
     first_id = response[0].get("bookingid")
 
-    assert r.status_code == requests.codes.ok  # check the status code
+    assert r.status_code == data.OK  # check the status code
     assert type(first_id) == int  # check if id exists in response
 
 
@@ -100,7 +100,7 @@ def testGetIdsByNonExistingCheckinDate():
     expected_ids = []
     ids = getIDsFromResponse(response)
 
-    assert r.status_code == requests.codes.ok  # check the status code
+    assert r.status_code == data.OK  # check the status code
     assert sorted(ids) == sorted(expected_ids)  # check if response is empty
 
 
@@ -112,7 +112,7 @@ def testGetIdsByInvalidFormatCheckinDate():
         raise SystemExit(e)
     # response = r.json()
 
-    assert r.status_code == requests.codes.ok  # check the status code
+    assert r.status_code == data.OK  # check the status code
     #assert response == "Some valid error message"  # check if appropriate message ia provided
 
 
@@ -126,7 +126,7 @@ def testGetIdsByCheckoutDate():
 
     first_id = response[0].get("bookingid")
 
-    assert r.status_code == requests.codes.ok  # check the status code
+    assert r.status_code == data.OK  # check the status code
     assert type(first_id) == int  # check if id exists in response
 
 
@@ -141,7 +141,7 @@ def testGetIdsByNonExistingCheckoutDate():
     expected_ids = []
     ids = getIDsFromResponse(response)
 
-    assert r.status_code == requests.codes.ok  # check the status code
+    assert r.status_code == data.OK  # check the status code
     assert sorted(ids) == sorted(expected_ids)  # check if response is empty
 
 
@@ -153,7 +153,7 @@ def testGetIdsByInvalidFormatCheckoutDate():
         raise SystemExit(e)
     # response = r.json()
 
-    assert r.status_code == requests.codes.ok  # check the status code
+    assert r.status_code == data.OK  # check the status code
     # assert response == "Some valid error message"  # check if appropriate message ia provided
 
 

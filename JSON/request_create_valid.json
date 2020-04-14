@@ -1,0 +1,11 @@
+{
+  "firstname": "Aleksandar",
+  "lastname": "Zeljkovic",
+  "totalprice": 350,
+  "depositpaid": true,
+  "bookingdates": {
+    "checkin": "2019-01-01",
+    "checkout": "2019-01-20"
+  },
+  "additionalneeds": "Late checkout"
+}
