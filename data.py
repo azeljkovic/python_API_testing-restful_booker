@@ -4,6 +4,13 @@ BAD_REQUEST = 400
 UNAUTHORIZED = 401
 NOT_FOUND = 404
 
+# Authentication
+USERNAME = 'admin'
+PASSWORD = 'password123'
+
+# Headers
+HEADERS = {'content-type': 'application/json'}
+
 # test_GetBookingIds
 all_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 valid_first_name = 'Susan'
@@ -17,5 +24,6 @@ invalid_format_date = '27.3.1943.'
 
 # test_GetBooking
 valid_id = '1'
+valid_id_2 = '8'
 invalid_id = '56'
 

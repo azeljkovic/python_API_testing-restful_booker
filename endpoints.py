@@ -8,5 +8,3 @@ CreateToken = URL + "/auth"
 Booking = URL + "/booking"
 HealthCheck = URL + "/ping"
 
-
-
