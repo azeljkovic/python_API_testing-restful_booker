@@ -1,0 +1,7 @@
+version: '3'
+services:
+  pytest_requests_restful_booker:
+    build: ./
+    network_mode: "host"
+    command: pytest
+

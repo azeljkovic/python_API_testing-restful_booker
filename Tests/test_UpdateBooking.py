@@ -9,8 +9,8 @@ from fixtures import get_token
 def testUpdateBookingValid(get_token):
     token = get_token
     headers = {'content-type': 'application/json', 'Cookie': token}
-    file_request = Path('../JSON/request_update_valid.json')
-    file_response = Path('../JSON/response_update_valid.json')
+    file_request = Path('./JSON/request_update_valid.json')
+    file_response = Path('./JSON/response_update_valid.json')
     with open(file_request) as f:
         payload = json.load(f)
     with open(file_response) as f:
@@ -29,7 +29,7 @@ def testUpdateBookingValid(get_token):
 def testUpdateBookingInvalidID(get_token):
     token = get_token
     headers = {'content-type': 'application/json', 'Cookie': token}
-    file_request = Path('../JSON/request_update_valid.json')
+    file_request = Path('./JSON/request_update_valid.json')
     with open(file_request) as f:
         payload = json.load(f)
 

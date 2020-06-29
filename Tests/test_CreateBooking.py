@@ -6,8 +6,8 @@ import data
 
 
 def testCreateBookingValid():
-    file_request = Path('../JSON/request_create_valid.json')
-    file_response = Path('../JSON/response_create_valid.json')
+    file_request = Path('./JSON/request_create_valid.json')
+    file_response = Path('./JSON/response_create_valid.json')
     with open(file_request) as f:
         payload = json.load(f)
     with open(file_response) as f:
@@ -34,7 +34,7 @@ def testCreateBookingEmptyRequest():
 
 
 def testCreateBookingMissingHeaders():
-    file_request = Path('../JSON/request_create_valid.json')
+    file_request = Path('./JSON/request_create_valid.json')
     with open(file_request) as f:
         payload = json.load(f)
 
