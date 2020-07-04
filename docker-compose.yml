@@ -3,5 +3,4 @@ services:
   pytest_requests_restful_booker:
     build: ./
     network_mode: "host"
-    command: pytest
-
+    command: pytest --alluredir=/allure-results
