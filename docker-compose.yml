@@ -4,7 +4,7 @@ services:
     build: ./
     network_mode: "host"
     volumes:
-     - /allure-results:/home/python_API_testing/Tests
+     - /allure-results:/allure-results
 
 
     command: pytest --alluredir=./allure-results
