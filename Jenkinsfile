@@ -6,9 +6,16 @@ pipeline {
      */
     agent {
         node {
-            label 'docker'
+            label 'docker-agent'
         }
     }
+
+    agent {
+    // this image provides everything needed to run Cypress
+    docker {
+      image 'cypress/base:10'
+    }
+  }
 
     stages {
         stage('Test') {
