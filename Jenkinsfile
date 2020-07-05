@@ -17,10 +17,10 @@ pipeline {
                 sh 'curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py'
                 sh 'python get-pip.py'
                 sh 'pip install docker-compose'
-                // docker-compose --version
-                // docker-compose build
-                // docker-compose up
-                // docker cp jnk_test:/home/python_API_testing/allure-results "/home/jenkins/workspace/Docker test/allure-results" 
+                sh 'docker-compose --version'
+                sh 'docker-compose build'
+                sh 'docker-compose up'
+                sh 'docker cp jnk_test:/home/python_API_testing/allure-results "/home/jenkins/workspace/Docker test/allure-results" '
             }
         }
     }
