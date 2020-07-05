@@ -15,8 +15,8 @@ pipeline {
             steps {
                 sh 'ls'
                 sh 'curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py'
-                python get-pip.py
-                pip install docker-compose
+                sh 'python get-pip.py'
+                sh 'pip install docker-compose'
                 // docker-compose --version
                 // docker-compose build
                 // docker-compose up
