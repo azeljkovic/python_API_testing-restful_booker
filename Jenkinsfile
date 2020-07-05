@@ -17,7 +17,7 @@ pipeline {
                 sh 'curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py'
                 sh 'python get-pip.py'
                 sh 'pip install docker-compose'
-                sh 'docker rm --force $(docker ps -a -q)'
+                sh 'docker rm --force jnk_test
                 sh 'docker-compose --version'
                 sh 'docker-compose build'
                 sh 'docker-compose up'
