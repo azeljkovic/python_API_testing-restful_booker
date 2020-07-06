@@ -23,6 +23,20 @@ pipeline {
                 sh 'docker cp jnk_test:/home/python_API_testing/allure-results "/home/jenkins/workspace/jkfile_master/allure-results" '
             }
         }
+
+        stage('Report') {
+            steps {
+                script {
+                    allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: 'target/allure-results']]
+                        ])
+                    }
+                }
+        }   
     }
 
 }
