@@ -17,11 +17,7 @@ pipeline {
                 sh 'cd restful-booker'
                 sh 'ls'
             }
-        }
 
-
-
-    stages {
         stage('Test') {
             steps {
                 // Install pip
