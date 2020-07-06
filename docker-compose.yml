@@ -3,7 +3,7 @@ services:
   pytest_requests_restful_booker:
     build: ./
     network_mode: "host"
-    container_name: jnk_test
+    container_name: restful_booker_test_container
 
 
     command: pytest --alluredir=./allure-results
