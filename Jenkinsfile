@@ -22,8 +22,8 @@ pipeline {
                 sh 'ls'
                 sh 'cd restful-booker'
                 sh 'ls'
-                sh 'docker-compose build'
-                sh 'docker-compose up'
+                sh 'cd restful-booker && docker-compose build'
+                sh 'cd restful-booker && docker-compose up'
             }
         }
 
