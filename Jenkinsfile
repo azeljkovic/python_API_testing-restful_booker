@@ -19,7 +19,9 @@ pipeline {
                 // Install docker-compose
                 sh 'pip install docker-compose'
                 sh 'git clone https://github.com/mwinteringham/restful-booker.git'
+                sh 'ls'
                 sh 'cd restful-booker'
+                sh 'ls'
                 sh 'docker-compose build'
                 sh 'docker-compose up'
             }
