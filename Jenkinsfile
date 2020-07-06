@@ -15,7 +15,8 @@ pipeline {
             steps {
                 sh 'git clone https://github.com/mwinteringham/restful-booker.git'
                 sh 'cd restful-booker'
-                sh 'ls'
+                sh 'docker-compose build'
+                sh 'docker-compose up'
             }
         }
 
