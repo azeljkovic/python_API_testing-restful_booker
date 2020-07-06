@@ -21,7 +21,6 @@ pipeline {
                 sh 'docker-compose build'
                 sh 'docker-compose up'
                 sh 'docker cp jnk_test:/home/python_API_testing/allure-results "/home/jenkins/workspace/jkfile/allure-results" '
-                sh 'docker rm --force jnk_test'
             }
         }
     }
