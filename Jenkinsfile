@@ -17,6 +17,7 @@ pipeline {
                 sh 'cd restful-booker'
                 sh 'ls'
             }
+        }
 
         stage('Test') {
             steps {
