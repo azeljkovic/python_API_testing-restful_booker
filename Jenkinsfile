@@ -31,9 +31,9 @@ pipeline {
                 sh 'docker-compose build'
                 sh 'docker-compose up'
                 // Copy allure results to Jenkins host so the report can be generated
-                sh 'docker cp jnk_test:/home/python_API_testing/allure-results "/home/jenkins/workspace/jkfile_master/allure-results" '
-                sh 'echo ${env.JOB_NAME}'
-                sh 'echo ${env.WORKSPACE}'
+                sh 'docker cp jnk_test:/home/python_API_testing/allure-results "/home/jenkins/workspace/jkfile_master/allure-results"'
+                sh 'echo $JOB_NAME'
+                sh 'echo $WORKSPACE'
             }
         }
 
