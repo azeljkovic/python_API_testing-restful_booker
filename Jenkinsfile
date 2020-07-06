@@ -13,6 +13,11 @@ pipeline {
     stages {
         stage('Bild restful-booker') {
             steps {
+                // Install pip
+                sh 'curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py'
+                sh 'python get-pip.py'
+                // Install docker-compose
+                sh 'pip install docker-compose'
                 sh 'git clone https://github.com/mwinteringham/restful-booker.git'
                 sh 'cd restful-booker'
                 sh 'docker-compose build'
@@ -23,10 +28,10 @@ pipeline {
         stage('Test') {
             steps {
                 // Install pip
-                sh 'curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py'
-                sh 'python get-pip.py'
+                //sh 'curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py'
+                //sh 'python get-pip.py'
                 // Install docker-compose
-                sh 'pip install docker-compose'
+                //sh 'pip install docker-compose'
                 // Run the container
                 sh 'docker-compose build'
                 sh 'docker-compose up'
