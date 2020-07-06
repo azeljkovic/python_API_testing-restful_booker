@@ -1,8 +1,8 @@
 import requests
-import endpoints
+import Data.endpoints as endpoints
 import json
 from pathlib import Path
-import data
+import Data.data as data
 
 
 def testCreateBookingValid():

@@ -1,6 +1,6 @@
 import requests
-import endpoints
-import data
+import Data.endpoints as endpoints
+import Data.data as data
 
 
 def testGetAllIDs():

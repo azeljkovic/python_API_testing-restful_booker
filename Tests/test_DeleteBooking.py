@@ -1,7 +1,7 @@
 import requests
-import endpoints
-import data
-from fixtures import get_token
+import Data.endpoints as endpoints
+import Data.data as data
+from Data.fixtures import get_token
 
 
 def testDeleteBookingValidID(get_token):

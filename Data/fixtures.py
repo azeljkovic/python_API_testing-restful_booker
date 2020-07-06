@@ -1,8 +1,8 @@
 import requests
 import json
 import pytest
-import endpoints
-import data
+import Data.endpoints as endpoints
+import Data.data as data
 
 
 @pytest.fixture(scope='session')

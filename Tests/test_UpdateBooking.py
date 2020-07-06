@@ -1,9 +1,9 @@
 import requests
-import endpoints
+import Data.endpoints as endpoints
 import json
 from pathlib import Path
-import data
-from fixtures import get_token
+import Data.data as data
+from Data.fixtures import get_token
 
 
 def testUpdateBookingValid(get_token):
